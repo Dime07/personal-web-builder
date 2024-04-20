@@ -1,3 +1,4 @@
+import Navbar from "@/components/layouts/Navbar";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
@@ -19,9 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <body className="bg-background text-foreground">
-        <main className="min-h-screen flex flex-col items-center">
-          {children}
-        </main>
+        <Navbar />
+        <main className="min-h-screen">{children}</main>
       </body>
     </html>
   );
