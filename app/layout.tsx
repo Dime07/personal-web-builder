@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -21,7 +22,8 @@ export default function RootLayout({
     <html lang="en" className={GeistSans.className}>
       <body className="bg-background text-foreground">
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
+        <Toaster position="top-center" />
       </body>
     </html>
   );
