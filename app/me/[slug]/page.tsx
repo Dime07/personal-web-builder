@@ -6,16 +6,19 @@ export default async function UserSlug({
   params: { slug: string };
 }) {
   const supabase = createClient();
-  const { data: dataUser } = await supabase
-    .from("users")
-    .select()
-    .eq("slug", params.slug);
 
-  const user = dataUser ? dataUser[0] : {};
+  const { data: dataUser } = await supabase
+    .from("user_cards")
+    .select(`*, users(*)`);
+
+  const data = dataUser ? dataUser[0] : {};
+
+  console.log(data);
 
   return (
     <div className="bg-white shadow-sm text-black p-2 rounded-md">
-      <p>{user.name}</p>
+      <p>{data.users.name}</p>
+      <p>{data.description}</p>
     </div>
   );
 }
